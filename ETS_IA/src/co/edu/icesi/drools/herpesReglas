@@ -6,7 +6,7 @@ rule "Herpes genital fuerte"
 	when
 		persona: Persona(llagas=="Si",ubicacionLlagas=="vagina", ardorOrinar=="Si", dificultadOrinar=="Si", picazon=="Si", lugarPicazon=="vagina", dolorAreaGenital=="Si")
 	then
-		enfermedad.setDiagnostico("Herpes genital fuerte");
+		persona.setDiagnostico("Herpes genital fuerte");
 end
 
 rule "Herpes genital leve"
@@ -21,7 +21,7 @@ rule "Herpes genital VHS-2"
 		persona: Persona((inflamacionGlandulasPelvis=="Si"|| inflamacionGlandulasGarganta=="Si"|| inflamacionGlandulasAxilas=="Si"), fiebre=="Si", escalofrios=="Si", 
 		dolorCabeza=="Si", cansancio=="Si")
 	then
-		enfermedad.setDiagnostico("Herpes genital causado por el VHS-2");
+		persona.setDiagnostico("Herpes genital causado por el VHS-2");
 end
 
 rule "Descarta herpes genital"
