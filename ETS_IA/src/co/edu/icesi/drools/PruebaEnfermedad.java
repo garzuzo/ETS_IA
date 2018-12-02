@@ -2,30 +2,41 @@ package co.edu.icesi.drools;
 
 import java.util.Collection;
 
-import org.drools.RuleBase;
-import org.drools.RuleBaseFactory;
-import org.drools.WorkingMemory;
-import org.drools.compiler.PackageBuilder;
-import org.drools.rule.Package; 
+//import org.drools.RuleBase;
+import org.drools.KnowledgeBase;
+import org.kie.api.KieServices;
+//import org.drools.RuleBaseFactory;
+//import org.drools.WorkingMemory;
+//import org.drools.compiler.PackageBuilder;
+//import org.drools.rule.Package; 
+import org.kie.api.runtime.KieContainer;
+import org.kie.api.runtime.KieSession;
 
 public class PruebaEnfermedad {
 
 	public static void main(String[] args) {
-		try {
-			RuleBase ruleBase= leerReglas();
-			org.drools.core.WorkingMemory workingMemory= ruleBase.newStatefulSession();
-			
-			Collection<Persona> personas= cargarPersonas();
-			
-			for(Persona p: personas) {
-				workingMemory.insert(personas);
-			}
-		}
-		catch(Throwable t) {
-			t.printStackTrace();
-		}
+		
+		KieServices ks = KieServices.Factory.get();
+		KieContainer kContainer = ks.getKieClasspathContainer();
+		KieSession kSession = kContainer.newKieSession("ksession-rules");
 
-	}
+		Persona persona=new Persona();
+		kSession.insert(persona);
+//		try {
+	//		RuleBase ruleBaseM;//= leerReglas();
+			//org.drools.core.WorkingMemory workingMemory= ruleBase.newStatefulSession();
+			
+			//Collection<Persona> personas= cargarPersonas();
+			
+//			for(Persona p: personas) {
+//				workingMemory.insert(personas);
+//			}
+//		}
+//		catch(Throwable t) {
+//			t.printStackTrace();
+//		}
+//
+//	}
 //	public static final void main(String[] args) {
 //        try {
 //            //Cargamos la base de reglas
@@ -74,7 +85,7 @@ public class PruebaEnfermedad {
 //        //Construimos un paquete de reglas
 //        PackageBuilder builder = new PackageBuilder();
 // 
-//        //Parseamos y compilamos las reglas en un único paso
+//        //Parseamos y compilamos las reglas en un ï¿½nico paso
 //        builder.addPackageFromDrl(source);
 // 
 //        // Verificamos el builder para ver si hubo errores
@@ -94,5 +105,5 @@ public class PruebaEnfermedad {
 //        return ruleBase;
 //    }
 //}
-
+	}
 }
