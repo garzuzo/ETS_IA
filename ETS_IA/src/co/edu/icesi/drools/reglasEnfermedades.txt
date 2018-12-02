@@ -1,0 +1,204 @@
+package co.edu.icesi.drools;
+
+import co.edu.icesi.drools.Enfermedad;
+import java.math.BigDecimal;
+
+rule "Clamidia preocupante-mujer"
+    when
+    	enfermedad: Enfermedad(dolorOrinar== "Si", dolorSexo == "Si", flujoVaginal=="anormal",
+    		colorFlujo== "con sangre", dolorVientre== "Si", olorFlujo== "fuerte", sangrado= "Si", 
+    		lugarSangrado== "vagina" || lugarSangrado== "ano", dolorAno== "Si", secrecionAno=="Si")
+     then
+        enfermedad.setDiagnostico("Clamidia preocupante (Mujer)");
+end
+
+rule "Clamidia preocupante-hombre"
+    when
+        enfermedad: Enfermedad(dolorOrinar== "Si", dolorSexo == "Si", sangrado= "Si", 
+    		lugarSangrado== "ano", dolorAno== "Si", secrecionAno=="Si", pusPene= "Si",
+    		secrecionPene=="lechosa", sensibilidadTesticulos="Si", inflamacionTesticulos=="Si")
+     then
+        enfermedad.setDiagnostico("Clamidia preocupante (Hombre)");
+end
+
+rule "Clamidia leve-mujer"
+    when
+    	enfermedad: Enfermedad(dolorOrinar== "Si", dolorSexo == "Si", flujoVaginal=="anormal",
+    		colorFlujo== "amarillento", dolorVientre== "Si", olorFlujo== "fuerte", sangrado= "No", 
+    		dolorAno== "Si", secrecionAno=="Si")
+     then
+        enfermedad.setDiagnostico("Clamidia leve (Mujer)");
+end
+
+rule "Clamidia leve-hombre"
+    when
+    	enfermedad: Enfermedad(dolorOrinar== "Si", dolorSexo == "Si", sangrado= "No", 
+    		dolorAno== "Si", secrecionAno=="Si", pusPene= "Si",
+    		secrecionPene=="acuosa", sensibilidadTesticulos="Si", inflamacionTesticulos=="Si")
+     then
+        enfermedad.setDiagnostico("Clamidia leve (Hombre)");
+end
+
+rule "Descarta clamidia-mujer"
+    when
+    	enfermedad: Enfermedad(dolorOrinar== "No", dolorSexo == "No", flujoVaginal=="normal",
+    		colorFlujo== "normal", dolorVientre== "No", olorFlujo== "normal", sangrado= "No", 
+    		dolorAno== "No", secrecionAno=="No")
+     then
+        enfermedad.setDiagnostico("Descarta Clamidia (Mujer)");
+end
+
+rule "Descarta clamidia-hombre"
+    when
+    	enfermedad: Enfermedad(dolorOrinar== "No", dolorSexo == "No", sangrado= "No", 
+    		dolorAno== "No", secrecionAno=="No", pusPene= "No",
+    		sensibilidadTesticulos="No", inflamacionTesticulos=="No")
+     then
+        enfermedad.setDiagnostico("Descarta Clamidia(Hombre)");
+end
+
+rule "Hepatitis B- fuerte"
+	when
+		enfermedad: Enfermedad(cansancio=="Si", dolorVientre=="Si", apetito=="Perdida apetito", nauseas=="Si",
+		vomitos=="Si", dolorArticulaciones=="Si", dolorCabeza=="fuerte", fiebre=="Si", urticaria=="Si", colorOrina=="oscura",
+		colorHeces=="claro"|| colorHeces=="grisaceo", ictericia="Si")
+	then
+		enfermedad.setDiagnostico("Hepatitis B- fuerte");
+end
+
+rule "Hepatitis B- Leve"
+	when
+		enfermedad: Enfermedad(cansancio=="Si", dolorVientre=="No", apetito=="normal", nauseas=="Si",
+		vomitos=="No", dolorArticulaciones=="Si", dolorCabeza=="No", fiebre=="No", urticaria=="No", colorOrina=="oscura",
+		colorHeces=="claro", ictericia="Si")
+	then
+		enfermedad.setDiagnostico("Hepatitis B- Leve");
+end
+
+rule "Descarta hepatitis"
+	when
+		enfermedad: Enfermedad(cansancio=="No", dolorVientre=="No", apetito=="normal", nauseas=="No",
+		vomitos=="No", dolorArticulaciones=="No", dolorCabeza=="No", fiebre=="No", urticaria=="No", colorOrina=="normal",
+		colorHeces=="normal", ictericia="No")
+	then
+		enfermedad.setDiagnostico("Descarta Hepatitis");
+end
+
+rule "Tricomoniasis fuerte-mujer"
+	when
+		enfermedad: Enfermedad(flujoVaginal=="anormal", colorFlujo=="verde"|| colorFlujo=="amarillento" || colorFlujo=="gris", olorFlujo=="fétido", 
+		sangrado=="Si", lugarSangrado=="vagina", picazon="Si", lugarPicazon="vagina", dolorSexo="Si")
+	then
+		enfermedad.setDiagnostico("Tricomoniasis fuerte");
+end
+
+rule "Tricomoniasis leve- mujer"
+	when
+		enfermedad: Enfermedad(flujoVaginal== "anormal",colorFlujo=="verde"|| colorFlujo=="amarillento" || colorFlujo=="gris", olorFlujo=="fuerte", 
+		sangrado=="No", picazon="Si", lugarPicazon="vagina", dolorSexo="No")
+	then
+		enfermedad.setDiagnostico("Tricomoniasis leve");
+end
+
+
+rule "Descarta Tricomoniasis"
+	when
+		enfermedad: Enfermedad(flujoVaginal=="normal", colorFlujo="normal", olorFlujo=="normal", 
+		sangrado=="No", picazon="No", dolorSexo="No")
+	then
+		enfermedad.setDiagnostico("Descarta Tricomoniasis);
+end
+
+rule "Gonorrea fuerte"
+	when
+		enfermedad: Enfermedad(dolorOrinar=="Si", ardorOrinar=="Si", flujoVaginal=="anormal", colorFlujo="amarillento", sangrado="Si", 
+		lugarSangrado="vagina", picazon= "Si", lugarPicazon= "ano", secrecionAno="Si", dolorDefecar="Si")
+	then
+		enfermedad.setDiagnostico("Gonorrea fuerte);
+end
+
+rule "Gonorrea leve"
+	when
+		enfermedad: Enfermedad(dolorOrinar=="Si", ardorOrinar=="Si", flujoVaginal=="anormal", colorFlujo="amarillento", sangrado="Si", 
+		lugarSangrado="vagina", picazon= "No",secrecionAno="No", dolorDefecar="No")
+	then
+		enfermedad.setDiagnostico("Gonorrea leve);
+end
+
+rule "Descarta Gonorrea"
+	when
+		enfermedad: Enfermedad(dolorOrinar=="No", ardorOrinar=="No", flujoVaginal=="normal", colorFlujo="normal", sangrado="No", 
+		picazon= "No", secrecionAno="No", dolorDefecar"No")
+	then
+		enfermedad.setDiagnostico("Descarta Gonorrea);
+end
+
+rule "Herpes genital fuerte"
+	when
+		enfermedad: Enfermedad(llagas=="Si",ubicacionLlagas=="vagina", ardorOrinar=="Si", dificultadOrinar=="Si", picazon=="Si", lugarPicazon=="vagina", dolorAreaGenital=="Si")
+	then
+		enfermedad.setDiagnostico("Herpes genital fuerte");
+end
+
+rule "Herpes genital leve"
+	when
+		enfermedad: Enfermedad(llagas=="Si", ubicacionLlagas=="vulva",ardorOrinar=="No", dificultadOrinar=="No", picazon=="Si", lugarPicazon=="vagina", dolorAreaGenital=="Si")
+	then
+		enfermedad.setDiagnostico("Herpes genital leve");
+end
+
+rule "Herpes genital VHS-2"
+	when
+		enfermedad: Enfermedad(inflamacionGlandulasPelvis=="Si", inflamacionGlandulasGarganta=="Si", inflamacionGlandulasAxilas=="Si", fiebre=="Si", escalofrios=="Si", 
+		dolorCabeza=="Si", cansancio=="Si")
+	then
+		enfermedad.setDiagnostico("Herpes genital causado por el VHS-2");
+end
+
+rule "Descarta herpes genital"
+	when
+		enfermedad: Enfermedad(llagas=="No", ardorOrinar=="No", dificultadOrinar=="No", picazon=="No", dolorAreaGenital=="No")
+	then
+		enfermedad.setDiagnostico("Descarta Herpes genital");
+end
+
+rule "VIH fuerte"
+	when 
+		enfermedad: Enfermedad (aftas=="Si", dolorGarganta=="Si", infeccionesHongos=="Si", enfermedadPelvica=="crónica", infecciones=="recurrentes", 
+		cansancio=="Si", mareos=="Si", dolorCabeza=="Si", perdidaPeso=="Si", formacionHematomas=="frecuente", diarrea=="Si", fiebre=="Si", sudores=="Si", 
+		inflamacionGlandulasPelvis=="Si", inflamacionGlandulasGarganta=="Si", inflamacionGlandulasAxilas=="Si", tos=="seca", respiracion=="falta de aire", 
+		llagas=="Si", ubicacionLlagas=="piel" || ubicacionLlagas=="boca", sangrado=="Si", lugarSangrado=="boca"|| lugarSangrado=="ano" || lugarSangrado=="vagina",
+		fuerzaMuscular=="debil" )
+	then
+		enfermedad.setDiagnostico("VIH fuerte");
+end
+
+rule "VIH fuerte"
+	when 
+		enfermedad: Enfermedad (aftas=="Si", dolorGarganta=="Si", infeccionesHongos=="Si", enfermedadPelvica=="crónica", infecciones=="recurrentes", 
+		cansancio=="Si", mareos=="Si", dolorCabeza=="Si", perdidaPeso=="Si", formacionHematomas=="frecuente", diarrea=="Si", fiebre=="Si", sudores=="Si", 
+		inflamacionGlandulasPelvis=="Si", inflamacionGlandulasGarganta=="Si", inflamacionGlandulasAxilas=="Si", tos=="seca", respiracion=="falta de aire", 
+		llagas=="Si", ubicacionLlagas=="piel" || ubicacionLlagas=="boca", sangrado=="Si", lugarSangrado=="boca"|| lugarSangrado=="ano" || lugarSangrado=="vagina",
+		fuerzaMuscular=="debil" )
+	then
+		enfermedad.setDiagnostico("VIH fuerte");
+end
+
+rule "VIH leve"
+	when 
+		enfermedad: Enfermedad (aftas=="No", dolorGarganta=="Si", infeccionesHongos=="Si", infecciones=="recurrentes", 
+		cansancio=="Si", mareos=="Si", dolorCabeza=="Si", perdidaPeso=="No", formacionHematomas=="poco", diarrea=="No", fiebre=="Si", sudores=="Si", 
+		inflamacionGlandulasPelvis=="Si", inflamacionGlandulasGarganta=="Si", inflamacionGlandulasAxilas=="Si", tos=="seca", respiracion=="falta de aire", 
+		llagas=="Si", ubicacionLlagas=="piel" || ubicacionLlagas=="boca", sangrado=="No", fuerzaMuscular=="debil" )
+	then
+		enfermedad.setDiagnostico("VIH Leve");
+end
+
+rule "VIH fuerte"
+	when 
+		enfermedad: Enfermedad (aftas=="No", dolorGarganta=="No", infeccionesHongos=="No", cansancio=="No", mareos=="No", dolorCabeza=="No", perdidaPeso=="No", formacionHematomas=="No", diarrea=="No", fiebre=="No", sudores=="No", 
+		inflamacionGlandulasPelvis=="No", inflamacionGlandulasGarganta=="No", inflamacionGlandulasAxilas=="No",respiracion=="Normal", 
+		llagas=="No", sangrado=="No", fuerzaMuscular=="normal" )
+	then
+		enfermedad.setDiagnostico("Descarta VIH");
+end
