@@ -103,7 +103,30 @@ public class PruebaEnfermedad {
 			p5.setDolorSexo("No");
 
 			ksession.insert(p5);
-
+	
+			Persona p6= new Persona();
+			p6.setNombrePersona("Persona6");
+			p6.setAftas("No");
+			p6.setDolorGarganta("Si");
+			p6.setInfeccionHongos("Si");
+			p6.setInfecciones("recurrentes");
+			p6.setCansancio("Si");
+			p6.setMareos("Si");
+			p6.setDolorCabeza("Si");
+			p6.setPerdidaPeso("No");
+			p6.setFormacionHematomas("poco");
+			p6.setDiarrea("No");
+			p6.setFiebre("Si");
+			p6.setSudores("Si");
+			p6.setInflamacionGlandulaGarganta("Si");
+			p6.setTos("seca");
+			p6.setRespiracion("falta de aire");
+			p6.setLlagas("Si");
+			p6.setUbicacionLlagas("boca");
+			p6.setSangrado("No");
+			p6.setFuerzaMuscular("debil");
+			
+			ksession.insert(p6);
 			ksession.fireAllRules();
 
 			System.out.println(p1.getNombrePersona() + "según tus síntomas, tu diagnóstico es:" + p1.getDiagnostico());

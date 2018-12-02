@@ -13,17 +13,6 @@ rule "VIH fuerte"
 		persona.setDiagnostico("VIH fuerte");
 end
 
-rule "VIH fuerte"
-	when 
-		persona: Persona (aftas=="Si", dolorGarganta=="Si", infeccionesHongos=="Si", enfermedadPelvica=="cronica", infecciones=="recurrentes", 
-		cansancio=="Si", mareos=="Si", dolorCabeza=="Si", perdidaPeso=="Si", formacionHematomas=="frecuente", diarrea=="Si", fiebre=="Si", sudores=="Si", 
-		(inflamacionGlandulasPelvis=="Si"|| inflamacionGlandulasGarganta=="Si"|| inflamacionGlandulasAxilas=="Si"), tos=="seca", respiracion=="falta de aire", 
-		llagas=="Si", ubicacionLlagas=="piel" || ubicacionLlagas=="boca", sangrado=="Si", (lugarSangrado=="boca"|| lugarSangrado=="ano" || lugarSangrado=="vagina"),
-		fuerzaMuscular=="debil" )
-	then
-		persona.setDiagnostico("VIH fuerte");
-end
-
 rule "VIH leve"
 	when 
 		persona: Persona (aftas=="No", dolorGarganta=="Si", infeccionesHongos=="Si", infecciones=="recurrentes", 
@@ -34,7 +23,7 @@ rule "VIH leve"
 		persona.setDiagnostico("VIH Leve");
 end
 
-rule "VIH fuerte"
+rule "Descarta VIH"
 	when 
 		persona: Persona (aftas=="No", dolorGarganta=="No", infeccionesHongos=="No", cansancio=="No", mareos=="No", dolorCabeza=="No", perdidaPeso=="No", formacionHematomas=="No", diarrea=="No", fiebre=="No", sudores=="No", 
 		inflamacionGlandulasPelvis=="No", inflamacionGlandulasGarganta=="No", inflamacionGlandulasAxilas=="No",respiracion=="Normal", 
