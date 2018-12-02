@@ -22,6 +22,7 @@ public class PruebaEnfermedad {
 
 		Persona persona=new Persona();
 		kSession.insert(persona);
+		
 //		try {
 	//		RuleBase ruleBaseM;//= leerReglas();
 			//org.drools.core.WorkingMemory workingMemory= ruleBase.newStatefulSession();
