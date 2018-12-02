@@ -11,15 +11,20 @@ public class Enfermedad {
 	private String fiebre;
 	private String flujo;
 	private String sangrado;
+	
+	private String dolorOrinar;
+	private String SecrecionPene;
+	private String dolorSexo;
 	public Enfermedad() {
 		
 		
 		
 	}
 	public void cargarDatosAnalisis() {
-		fiebre=p.get("fiebre");
-		flujo=p.get("flujo");
-		sangrado=p.get("sangrado");
+		dolorOrinar=p.get("dolorOrinar");
+		SecrecionPene=p.get("SecrecionPene");
+		dolorSexo=p.get("dolorSexo");
+		System.out.println(dolorOrinar);
 	}
 	public HashMap<String, String> getP() {
 		return p;

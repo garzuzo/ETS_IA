@@ -2,6 +2,7 @@ package co.edu.icesi.view;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.HashMap;
@@ -10,6 +11,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 import co.edu.icesi.drools.Enfermedad;
 
@@ -26,7 +28,7 @@ public class MainView extends JFrame implements ActionListener {
 
 	public MainView() {
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-	
+		enfermedad=new Enfermedad();
 		eView = new EtsView();
 		setLayout(new BorderLayout());
 		add(eView, BorderLayout.CENTER);
@@ -38,7 +40,11 @@ public class MainView extends JFrame implements ActionListener {
 		button.setText("Aceptar");
 		button.addActionListener(this);
 		button.setActionCommand("aceptar");
-		add(button, BorderLayout.SOUTH);
+		JPanel pAux=new JPanel();
+		pAux.setLayout(new FlowLayout());
+		pAux.add(button);
+		pAux.setBackground(Color.white);
+		add(pAux, BorderLayout.SOUTH);
 
 	}
 
