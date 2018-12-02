@@ -4,7 +4,7 @@ import co.edu.icesi.drools.Persona;
 
 rule "Gonorrea fuerte"
 	when
-		persona: Persona(dolorOrinar=="Si", ardorOrinar=="Si", flujoVaginal=="anormal", colorFlujo=="amarillo", sangrado=="Si", 
+		persona: Persona(dolorOrinar=="Si", ardorOrinar=="Si", flujoVaginal=="anormal", colorFlujo=="amarillento", sangrado=="Si", 
 		lugarSangrado=="vagina", picazon== "Si", lugarPicazon== "ano", secrecionAno=="Si", dolorDefecar=="Si")
 	then
 		persona.setDiagnostico("Gonorrea fuerte);
@@ -12,7 +12,7 @@ end
 
 rule "Gonorrea leve"
 	when
-		persona: Persona(dolorOrinar=="Si", ardorOrinar=="Si", flujoVaginal=="anormal", colorFlujo=="amarillo", sangrado="Si", 
+		persona: Persona(dolorOrinar=="Si", ardorOrinar=="Si", flujoVaginal=="anormal", colorFlujo=="amarillento", sangrado=="Si", 
 		lugarSangrado=="vagina", picazon== "No",secrecionAno=="No", dolorDefecar=="No")
 	then
 		persona.setDiagnostico("Gonorrea leve);
