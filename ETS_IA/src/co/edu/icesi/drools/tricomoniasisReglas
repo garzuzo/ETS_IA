@@ -4,7 +4,7 @@ import co.edu.icesi.drools.Persona;
 
 rule "Tricomoniasis fuerte-mujer"
 	when
-		persona: Persona(flujoVaginal=="anormal", colorFlujo=="verde"|| colorFlujo=="amarillento" || colorFlujo=="gris", olorFlujo=="fetido", 
+		persona: Persona(flujoVaginal=="anormal", (colorFlujo=="verde"|| colorFlujo=="amarillento" || colorFlujo=="gris"), olorFlujo=="fetido", 
 		sangrado=="Si", lugarSangrado=="vagina", picazon=="Si", lugarPicazon=="vagina", dolorSexo=="Si")
 	then
 		persona.setDiagnostico("Tricomoniasis fuerte");
@@ -12,7 +12,7 @@ end
 
 rule "Tricomoniasis leve- mujer"
 	when
-		persona: Persona(flujoVaginal== "anormal",colorFlujo=="verde"|| colorFlujo=="amarillento" || colorFlujo=="gris", olorFlujo=="fuerte", 
+		persona: Persona(flujoVaginal== "anormal",(colorFlujo=="verde"|| colorFlujo=="amarillento" || colorFlujo=="gris"), olorFlujo=="fuerte", 
 		sangrado=="No", picazon=="Si", lugarPicazon=="vagina", dolorSexo=="No")
 	then
 		persona.setDiagnostico("Tricomoniasis leve");

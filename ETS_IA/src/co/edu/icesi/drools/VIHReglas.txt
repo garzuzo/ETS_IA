@@ -6,8 +6,8 @@ rule "VIH fuerte"
 	when 
 		persona: Persona (aftas=="Si", dolorGarganta=="Si", infeccionesHongos=="Si", enfermedadPelvica=="cronica", infecciones=="recurrentes", 
 		cansancio=="Si", mareos=="Si", dolorCabeza=="Si", perdidaPeso=="Si", formacionHematomas=="frecuente", diarrea=="Si", fiebre=="Si", sudores=="Si", 
-		inflamacionGlandulasPelvis=="Si", inflamacionGlandulasGarganta=="Si", inflamacionGlandulasAxilas=="Si", tos=="seca", respiracion=="falta de aire", 
-		llagas=="Si", ubicacionLlagas=="piel" || ubicacionLlagas=="boca", sangrado=="Si", lugarSangrado=="boca"|| lugarSangrado=="ano" || lugarSangrado=="vagina",
+		(inflamacionGlandulasPelvis=="Si"|| inflamacionGlandulasGarganta=="Si"|| inflamacionGlandulasAxilas=="Si"), tos=="seca", respiracion=="falta de aire", 
+		llagas=="Si", (ubicacionLlagas=="piel" || ubicacionLlagas=="boca"), sangrado=="Si", (lugarSangrado=="boca"|| lugarSangrado=="ano" || lugarSangrado=="vagina"),
 		fuerzaMuscular=="debil" )
 	then
 		persona.setDiagnostico("VIH fuerte");
@@ -17,8 +17,8 @@ rule "VIH fuerte"
 	when 
 		persona: Persona (aftas=="Si", dolorGarganta=="Si", infeccionesHongos=="Si", enfermedadPelvica=="cronica", infecciones=="recurrentes", 
 		cansancio=="Si", mareos=="Si", dolorCabeza=="Si", perdidaPeso=="Si", formacionHematomas=="frecuente", diarrea=="Si", fiebre=="Si", sudores=="Si", 
-		inflamacionGlandulasPelvis=="Si", inflamacionGlandulasGarganta=="Si", inflamacionGlandulasAxilas=="Si", tos=="seca", respiracion=="falta de aire", 
-		llagas=="Si", ubicacionLlagas=="piel" || ubicacionLlagas=="boca", sangrado=="Si", lugarSangrado=="boca"|| lugarSangrado=="ano" || lugarSangrado=="vagina",
+		(inflamacionGlandulasPelvis=="Si"|| inflamacionGlandulasGarganta=="Si"|| inflamacionGlandulasAxilas=="Si"), tos=="seca", respiracion=="falta de aire", 
+		llagas=="Si", ubicacionLlagas=="piel" || ubicacionLlagas=="boca", sangrado=="Si", (lugarSangrado=="boca"|| lugarSangrado=="ano" || lugarSangrado=="vagina"),
 		fuerzaMuscular=="debil" )
 	then
 		persona.setDiagnostico("VIH fuerte");
@@ -28,8 +28,8 @@ rule "VIH leve"
 	when 
 		persona: Persona (aftas=="No", dolorGarganta=="Si", infeccionesHongos=="Si", infecciones=="recurrentes", 
 		cansancio=="Si", mareos=="Si", dolorCabeza=="Si", perdidaPeso=="No", formacionHematomas=="poco", diarrea=="No", fiebre=="Si", sudores=="Si", 
-		inflamacionGlandulasPelvis=="Si", inflamacionGlandulasGarganta=="Si", inflamacionGlandulasAxilas=="Si", tos=="seca", respiracion=="falta de aire", 
-		llagas=="Si", ubicacionLlagas=="piel" || ubicacionLlagas=="boca", sangrado=="No", fuerzaMuscular=="debil" )
+		(inflamacionGlandulasPelvis=="Si"|| inflamacionGlandulasGarganta=="Si"|| inflamacionGlandulasAxilas=="Si"), tos=="seca", respiracion=="falta de aire", 
+		llagas=="Si",( ubicacionLlagas=="piel" || ubicacionLlagas=="boca"), sangrado=="No", fuerzaMuscular=="debil" )
 	then
 		persona.setDiagnostico("VIH Leve");
 end
