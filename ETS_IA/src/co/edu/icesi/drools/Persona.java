@@ -67,10 +67,56 @@ public class Persona {
 		
 	}
 	public void cargarDatosAnalisis() {
-		dolorOrinar=p.get("dolorOrinar");
+		dolorOrinar= p.get("dolorOrinar");
+		dolorSexo= p.get("dolorSexo");
+		flujoVaginal= p.get("flujoVaginal");
+		olorFlujo= p.get("olorFlujo");
+		colorFlujo=p.get("colorFlujo");
+		sangrado=p.get("sangrado");
+		inflamacionTesticulos=p.get("inflamacionTesticulos");
+		sensibilidadTesticulos=p.get("sensibilidadTesticulos");
+		dolorAno=p.get("dolorAno");
 		secrecionPene=p.get("secrecionPene");
-		dolorSexo=p.get("dolorSexo");
-		
+		cansancio=p.get("cansancio");
+		dolorVientre=p.get("dolorVientre");
+		apetito=p.get("apetito");
+		nauseas=p.get("nauseas");
+		vomitos=p.get("vomitos");
+		dolorArticulaciones=p.get("dolorArticulaciones");
+		dolorCabeza=p.get("dolorCabeza");
+		fiebre=p.get("fiebre");
+		urticaria=p.get("urticaria");
+		colorOrina=p.get("colorOrina");
+		colorHeces=p.get("colorHeces");
+		ictericia=p.get("ictericia");
+		picazon=p.get("picazon");
+		lugarPicazon=p.get("lugarPicazon");
+		secrecionAno=p.get("secrecionAno");
+		dolorDefecar=p.get("dolorDefecar");
+		llagas=p.get("llagas");
+		ubicacionLlagas=p.get("ubicacionLlagas");
+		ardorOrinar=p.get("ardorOrinar");
+		dificultadOrinar=p.get("dificultadOrinar");
+		dolorAreaGenital=p.get("dolorAreaGenital");
+		escalofrios=p.get("escalofrios");
+		inflamacionGlandulaPelvis=p.get("inflamacionGlandulaPelvis");
+		inflamacionGlandulaGarganta=p.get("inflamacionGlandulaGarganta");
+		inflamacionGlandulaAxilas=p.get("inflamacionGlandulaAxilas");
+		aftas=p.get("aftas");
+		dolorGarganta=p.get("dolorGarganta");
+		infeccionHongos=p.get("infeccionHongos");
+		infecciones=p.get("infecciones");
+		enfermedadPelvica=p.get("enfermedadPelvica");
+		mareos=p.get("mareos");
+		aturdimiento=p.get("aturdimiento");
+		perdidaPeso=p.get("perdidaPeso");
+		formacionHematomas=p.get("formacionHematomas");
+		diarrea=p.get("diarrea");
+		sudores=p.get("sudores");
+		tos=p.get("tos");
+		respiracion=p.get("respiracion");
+		lugarSangrado =p.get("lugarSangrado");
+		fuerzaMuscular=p.get("fuerzaMuscular");
 		System.out.println(dolorOrinar);
 	}
 	public HashMap<String, String> getP() {

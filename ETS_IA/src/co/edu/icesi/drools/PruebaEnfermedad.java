@@ -12,21 +12,25 @@ import org.drools.builder.KnowledgeBuilderFactory;
 import org.drools.builder.ResourceType;
 import org.drools.io.ResourceFactory;
 import org.drools.runtime.StatefulKnowledgeSession;
-import org.kie.api.KieServices;
+//import org.kie.api.KieServices;
 //import org.drools.RuleBaseFactory;
 //import org.drools.WorkingMemory;
 //import org.drools.compiler.PackageBuilder;
 //import org.drools.rule.Package; 
-import org.kie.api.runtime.KieContainer;
-import org.kie.api.runtime.KieSession;
+//import org.kie.api.runtime.KieContainer;
+//import org.kie.api.runtime.KieSession;
+
+//import org.kie.api.KieServices;
+//import org.kie.api.runtime.KieContainer;
+//import org.kie.api.runtime.KieSession;
 
 public class PruebaEnfermedad {
 
 	public static void main(String[] args) {
 
-		KieServices ks = KieServices.Factory.get();
-		KieContainer kContainer = ks.getKieClasspathContainer();
-		KieSession kSession = kContainer.newKieSession("ksession-rules");
+//		KieServices ks = KieServices.Factory.get();
+//		KieContainer kContainer = ks.getKieClasspathContainer();
+//		KieSession kSession = kContainer.newKieSession("ksession-rules");
 
 		try {
 
@@ -68,7 +72,7 @@ public class PruebaEnfermedad {
 			Persona p3 = new Persona();
 			p3.setNombrePersona("Persona3");
 			p3.setCansancio("Si");
-			p3.setApetito("Perdida apetito");
+			p3.setApetito("poco");
 			p3.setNauseas("Si");
 			p3.setDolorVientre("Si");
 			p3.setDolorArticulaciones("Si");
