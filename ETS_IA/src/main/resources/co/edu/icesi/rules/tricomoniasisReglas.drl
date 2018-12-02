@@ -1,4 +1,4 @@
-package co.edu.icesi.drools;
+package co.edu.icesi.rules;
 
 import co.edu.icesi.drools.Persona;
 

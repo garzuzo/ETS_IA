@@ -1,4 +1,4 @@
-package co.edu.icesi.drools;
+package co.edu.icesi.rules;
 
 import co.edu.icesi.drools.Persona;
 
@@ -18,7 +18,7 @@ end
 
 rule "Herpes genital VHS-2"
 	when
-		persona: Persona((inflamacionGlandulasPelvis=="Si"|| inflamacionGlandulasGarganta=="Si"|| inflamacionGlandulasAxilas=="Si"), fiebre=="Si", escalofrios=="Si", 
+		persona: Persona((inflamacionGlandulaPelvis=="Si"|| inflamacionGlandulaGarganta=="Si"|| inflamacionGlandulaAxilas=="Si"), fiebre=="Si", escalofrios=="Si", 
 		dolorCabeza=="Si", cansancio=="Si")
 	then
 		persona.setDiagnostico("Herpes genital causado por el VHS-2");

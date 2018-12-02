@@ -32,7 +32,7 @@ public class PruebaEnfermedad {
 		try {
 			PackageBuilder packageBuilder = new PackageBuilder();
 
-			String ruleFile = "/hepatitisReglas.drl";
+			String ruleFile = "/co/edu/icesi/rules/VIHReglas.drl";
 			InputStream resourceAsStream = getClass().getResourceAsStream(ruleFile);
 
 			Reader reader = new InputStreamReader(resourceAsStream);
@@ -157,7 +157,7 @@ public class PruebaEnfermedad {
 
 			PackageBuilder packageBuilder = new PackageBuilder();
 
-			String ruleFile = "/co/edu/icesi/rules/gonorreaReglas.drl";
+			String ruleFile = "/co/edu/icesi/rules/clamidiaReglas.drl";
 			InputStream resourceAsStream = getClass().getResourceAsStream(ruleFile);
 
 			Reader reader = new InputStreamReader(resourceAsStream);
@@ -165,7 +165,10 @@ public class PruebaEnfermedad {
 			Package rulesPackage = packageBuilder.getPackage();
 			RuleBase ruleBase = RuleBaseFactory.newRuleBase();
 			ruleBase.addPackage(rulesPackage);
+			 ruleFile = "/co/edu/icesi/rules/VIHReglas.drl";
+			 resourceAsStream = getClass().getResourceAsStream(ruleFile);
 
+		
 //			
 //			 ruleFile = "/gonorreaReglas.drl";
 //			 resourceAsStream = getClass().getResourceAsStream(ruleFile);
@@ -322,7 +325,7 @@ public class PruebaEnfermedad {
 	public static void main(String[] args) {
 		PruebaEnfermedad pe = new PruebaEnfermedad();
 		pe.execute();
-		// pe.execute1();
+		//pe.execute1();
 //		try {
 //
 //			// load up the knowledge base
