@@ -28,14 +28,18 @@ public class MainView extends JFrame implements ActionListener {
 
 	public MainView() {
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		this.setBackground(Color.white);
 		enfermedad=new Persona();
 		eView = new EtsView();
 		setLayout(new BorderLayout());
 		add(eView, BorderLayout.CENTER);
 		JLabel banner=new JLabel(new ImageIcon("./src/banner.png"));
 		banner.setSize(200, 300);
-	
-		add(banner,BorderLayout.NORTH);
+	banner.setBackground(Color.white);
+	JPanel pAux2=new JPanel();
+	pAux2.setBackground(Color.WHITE);
+	pAux2.add(banner);
+		add(pAux2,BorderLayout.NORTH);
 		button = new JButton();
 		button.setText("Aceptar");
 		button.addActionListener(this);
@@ -45,14 +49,15 @@ public class MainView extends JFrame implements ActionListener {
 		pAux.add(button);
 		pAux.setBackground(Color.white);
 		add(pAux, BorderLayout.SOUTH);
-
+		setBackground(Color.white);
 	}
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		MainView mv = new MainView();
+		
 		mv.setVisible(true);
-		mv.setSize(900, 800);
+		mv.setSize(1300, 950);
 
 	}
 

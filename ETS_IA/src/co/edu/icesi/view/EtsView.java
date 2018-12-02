@@ -30,7 +30,8 @@ public class EtsView extends JPanel {
 	setBackground(Color.WHITE);
 		arr = new ArrayList<BotonesEnfermedad>();
 		cargarDatos();
-		setLayout(new GridLayout(arr.size(), numColumns + 1));
+		numColumns--;
+		setLayout(new GridLayout(arr.size(), numColumns+1));
 		for (int i = 0; i < arr.size(); i++) {
 
 			BotonesEnfermedad beAct = arr.get(i);
@@ -86,7 +87,7 @@ rbAct.setBackground(Color.WHITE);
 			String act;
 			while ((act = in.readLine()) != null) {
 
-				String[] arr = act.split(";");
+				String[] arr = act.split(",");
 
 				BotonesEnfermedad beAct = new BotonesEnfermedad();
 
@@ -99,6 +100,7 @@ rbAct.setBackground(Color.WHITE);
 					numColumns = beAct.numOpciones;
 				for (int i = 2; i < arr.length; i++) {
 					String sintomaActual = arr[i];
+					if(!sintomaActual.equals(""))
 					beAct.arrRD.add(new JRadioButton(sintomaActual));
 				}
 				beAct.agregarABG();

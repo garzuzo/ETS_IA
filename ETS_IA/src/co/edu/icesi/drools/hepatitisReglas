@@ -4,7 +4,7 @@ import co.edu.icesi.drools.Persona;
 
 rule "Hepatitis B- fuerte"
 	when
-		persona: Persona(cansancio=="Si", dolorVientre=="Si", apetito=="Perdida apetito", nauseas=="Si",
+		persona: Persona(cansancio=="Si", dolorVientre=="Si", apetito=="poco", nauseas=="Si",
 		vomitos=="Si", dolorArticulaciones=="Si", dolorCabeza=="fuerte", fiebre=="Si", urticaria=="Si", colorOrina=="oscura",
 		(colorHeces=="claro"|| colorHeces=="grisaceo"), ictericia=="Si")
 	then
