@@ -2,7 +2,7 @@ package co.edu.icesi.drools;
 
 import java.util.HashMap;
 
-public class Enfermedad {
+public class Persona {
 
 	private HashMap<String,String> p;
 	
@@ -60,7 +60,7 @@ public class Enfermedad {
 	private String lugarSangrado; //boca, nariz,ano, vagina
 	private String fuerzaMuscular;
 
-	public Enfermedad() {
+	public Persona() {
 		
 //		cargarDatosAnalisis();
 		

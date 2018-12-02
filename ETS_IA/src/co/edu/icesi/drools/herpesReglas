@@ -1,0 +1,32 @@
+package co.edu.icesi.drools;
+
+import co.edu.icesi.drools.Persona;
+
+rule "Herpes genital fuerte"
+	when
+		enfermedad: Enfermedad(llagas=="Si",ubicacionLlagas=="vagina", ardorOrinar=="Si", dificultadOrinar=="Si", picazon=="Si", lugarPicazon=="vagina", dolorAreaGenital=="Si")
+	then
+		enfermedad.setDiagnostico("Herpes genital fuerte");
+end
+
+rule "Herpes genital leve"
+	when
+		enfermedad: Enfermedad(llagas=="Si", ubicacionLlagas=="vulva",ardorOrinar=="No", dificultadOrinar=="No", picazon=="Si", lugarPicazon=="vagina", dolorAreaGenital=="Si")
+	then
+		enfermedad.setDiagnostico("Herpes genital leve");
+end
+
+rule "Herpes genital VHS-2"
+	when
+		enfermedad: Enfermedad(inflamacionGlandulasPelvis=="Si", inflamacionGlandulasGarganta=="Si", inflamacionGlandulasAxilas=="Si", fiebre=="Si", escalofrios=="Si", 
+		dolorCabeza=="Si", cansancio=="Si")
+	then
+		enfermedad.setDiagnostico("Herpes genital causado por el VHS-2");
+end
+
+rule "Descarta herpes genital"
+	when
+		enfermedad: Enfermedad(llagas=="No", ardorOrinar=="No", dificultadOrinar=="No", picazon=="No", dolorAreaGenital=="No")
+	then
+		enfermedad.setDiagnostico("Descarta Herpes genital");
+end

@@ -1,0 +1,30 @@
+package co.edu.icesi.drools;
+
+import co.edu.icesi.drools.Persona;
+
+rule "Hepatitis B- fuerte"
+	when
+		persona: Persona(cansancio=="Si", dolorVientre=="Si", apetito=="Perdida apetito", nauseas=="Si",
+		vomitos=="Si", dolorArticulaciones=="Si", dolorCabeza=="fuerte", fiebre=="Si", urticaria=="Si", colorOrina=="oscura",
+		colorHeces=="claro"|| colorHeces=="grisaceo", ictericia="Si")
+	then
+		persona.setDiagnostico("Hepatitis B- fuerte");
+end
+
+rule "Hepatitis B- Leve"
+	when
+		persona: Persona(cansancio=="Si", dolorVientre=="No", apetito=="normal", nauseas=="Si",
+		vomitos=="No", dolorArticulaciones=="Si", dolorCabeza=="No", fiebre=="No", urticaria=="No", colorOrina=="oscura",
+		colorHeces=="claro", ictericia="Si")
+	then
+		persona.setDiagnostico("Hepatitis B- Leve");
+end
+
+rule "Descarta hepatitis"
+	when
+		persona: Persona(cansancio=="No", dolorVientre=="No", apetito=="normal", nauseas=="No",
+		vomitos=="No", dolorArticulaciones=="No", dolorCabeza=="No", fiebre=="No", urticaria=="No", colorOrina=="normal",
+		colorHeces=="normal", ictericia="No")
+	then
+		persona.setDiagnostico("Descarta Hepatitis");
+end

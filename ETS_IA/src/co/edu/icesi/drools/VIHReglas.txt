@@ -1,0 +1,44 @@
+package co.edu.icesi.drools;
+
+import co.edu.icesi.drools.Persona;
+
+rule "VIH fuerte"
+	when 
+		enfermedad: Enfermedad (aftas=="Si", dolorGarganta=="Si", infeccionesHongos=="Si", enfermedadPelvica=="crónica", infecciones=="recurrentes", 
+		cansancio=="Si", mareos=="Si", dolorCabeza=="Si", perdidaPeso=="Si", formacionHematomas=="frecuente", diarrea=="Si", fiebre=="Si", sudores=="Si", 
+		inflamacionGlandulasPelvis=="Si", inflamacionGlandulasGarganta=="Si", inflamacionGlandulasAxilas=="Si", tos=="seca", respiracion=="falta de aire", 
+		llagas=="Si", ubicacionLlagas=="piel" || ubicacionLlagas=="boca", sangrado=="Si", lugarSangrado=="boca"|| lugarSangrado=="ano" || lugarSangrado=="vagina",
+		fuerzaMuscular=="debil" )
+	then
+		enfermedad.setDiagnostico("VIH fuerte");
+end
+
+rule "VIH fuerte"
+	when 
+		enfermedad: Enfermedad (aftas=="Si", dolorGarganta=="Si", infeccionesHongos=="Si", enfermedadPelvica=="crónica", infecciones=="recurrentes", 
+		cansancio=="Si", mareos=="Si", dolorCabeza=="Si", perdidaPeso=="Si", formacionHematomas=="frecuente", diarrea=="Si", fiebre=="Si", sudores=="Si", 
+		inflamacionGlandulasPelvis=="Si", inflamacionGlandulasGarganta=="Si", inflamacionGlandulasAxilas=="Si", tos=="seca", respiracion=="falta de aire", 
+		llagas=="Si", ubicacionLlagas=="piel" || ubicacionLlagas=="boca", sangrado=="Si", lugarSangrado=="boca"|| lugarSangrado=="ano" || lugarSangrado=="vagina",
+		fuerzaMuscular=="debil" )
+	then
+		enfermedad.setDiagnostico("VIH fuerte");
+end
+
+rule "VIH leve"
+	when 
+		enfermedad: Enfermedad (aftas=="No", dolorGarganta=="Si", infeccionesHongos=="Si", infecciones=="recurrentes", 
+		cansancio=="Si", mareos=="Si", dolorCabeza=="Si", perdidaPeso=="No", formacionHematomas=="poco", diarrea=="No", fiebre=="Si", sudores=="Si", 
+		inflamacionGlandulasPelvis=="Si", inflamacionGlandulasGarganta=="Si", inflamacionGlandulasAxilas=="Si", tos=="seca", respiracion=="falta de aire", 
+		llagas=="Si", ubicacionLlagas=="piel" || ubicacionLlagas=="boca", sangrado=="No", fuerzaMuscular=="debil" )
+	then
+		enfermedad.setDiagnostico("VIH Leve");
+end
+
+rule "VIH fuerte"
+	when 
+		enfermedad: Enfermedad (aftas=="No", dolorGarganta=="No", infeccionesHongos=="No", cansancio=="No", mareos=="No", dolorCabeza=="No", perdidaPeso=="No", formacionHematomas=="No", diarrea=="No", fiebre=="No", sudores=="No", 
+		inflamacionGlandulasPelvis=="No", inflamacionGlandulasGarganta=="No", inflamacionGlandulasAxilas=="No",respiracion=="Normal", 
+		llagas=="No", sangrado=="No", fuerzaMuscular=="normal" )
+	then
+		enfermedad.setDiagnostico("Descarta VIH");
+end

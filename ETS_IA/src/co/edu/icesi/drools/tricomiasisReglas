@@ -1,0 +1,28 @@
+package co.edu.icesi.drools;
+
+import co.edu.icesi.drools.Persona;
+
+rule "Tricomoniasis fuerte-mujer"
+	when
+		enfermedad: Enfermedad(flujoVaginal=="anormal", colorFlujo=="verde"|| colorFlujo=="amarillento" || colorFlujo=="gris", olorFlujo=="fétido", 
+		sangrado=="Si", lugarSangrado=="vagina", picazon="Si", lugarPicazon="vagina", dolorSexo="Si")
+	then
+		enfermedad.setDiagnostico("Tricomoniasis fuerte");
+end
+
+rule "Tricomoniasis leve- mujer"
+	when
+		enfermedad: Enfermedad(flujoVaginal== "anormal",colorFlujo=="verde"|| colorFlujo=="amarillento" || colorFlujo=="gris", olorFlujo=="fuerte", 
+		sangrado=="No", picazon="Si", lugarPicazon="vagina", dolorSexo="No")
+	then
+		enfermedad.setDiagnostico("Tricomoniasis leve");
+end
+
+
+rule "Descarta Tricomoniasis"
+	when
+		enfermedad: Enfermedad(flujoVaginal=="normal", colorFlujo="normal", olorFlujo=="normal", 
+		sangrado=="No", picazon="No", dolorSexo="No")
+	then
+		enfermedad.setDiagnostico("Descarta Tricomoniasis);
+end

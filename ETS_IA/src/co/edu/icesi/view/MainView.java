@@ -13,7 +13,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import co.edu.icesi.drools.Enfermedad;
+import co.edu.icesi.drools.Persona;
 
 public class MainView extends JFrame implements ActionListener {
 
@@ -24,11 +24,11 @@ public class MainView extends JFrame implements ActionListener {
 	private EtsView eView;
 	private JButton button;
 
-	private Enfermedad enfermedad;
+	private Persona enfermedad;
 
 	public MainView() {
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-		enfermedad=new Enfermedad();
+		enfermedad=new Persona();
 		eView = new EtsView();
 		setLayout(new BorderLayout());
 		add(eView, BorderLayout.CENTER);
