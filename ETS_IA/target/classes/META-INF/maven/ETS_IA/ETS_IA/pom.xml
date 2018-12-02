@@ -9,48 +9,20 @@
   </properties>
   
   <dependencies>
-   <dependency>
-        <groupId>org.slf4j</groupId>
-	    <artifactId>slf4j-api</artifactId>
-        <version>1.7.25</version>
-    </dependency>
-    
-    <dependency>
-    	<groupId>org.slf4j</groupId>
-    	<artifactId>slf4j-jdk14</artifactId>
-    	<version>1.7.25</version>
-	</dependency>
-	
-  <dependency>
-    <groupId>org.kie</groupId>
-    <artifactId>kie-ci</artifactId>
-    <version>7.1.0.Beta1</version>
-</dependency>
-<dependency>
-    <groupId>org.drools</groupId>
-    <artifactId>drools-decisiontables</artifactId>
-    <version>7.1.0.Beta1</version>
-</dependency>
-<!-- https://mvnrepository.com/artifact/org.drools/drools-core -->
+ 		<dependency>
+		<groupId>org.drools</groupId>
+		<artifactId>drools-compiler</artifactId>
+		<version>6.0.1.Final</version>
+		</dependency>
+		
 <dependency>
     <groupId>org.drools</groupId>
     <artifactId>drools-core</artifactId>
-    <version>6.5.0.Final</version>
-</dependency>
-<!-- https://mvnrepository.com/artifact/org.drools/drools-compiler -->
-<dependency>
-    <groupId>org.drools</groupId>
-    <artifactId>drools-compiler</artifactId>
-    <version>7.14.0.Final</version>
-</dependency>
-<!-- https://mvnrepository.com/artifact/org.drools/knowledge-api -->
-<dependency>
-    <groupId>org.drools</groupId>
-    <artifactId>knowledge-api</artifactId>
-    <version>6.5.0.Final</version>
+    <version>6.0.1.Final</version>
 </dependency>
 
   </dependencies>
+  
   <build>
     <sourceDirectory>src</sourceDirectory>
     <plugins>

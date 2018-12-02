@@ -19,7 +19,7 @@ import javafx.scene.control.RadioButton;
 
 public class EtsView extends JPanel {
 
-	public static String route = "./src/datos.txt";
+	public static String route = "./src/main/resources/datos.txt";
 
 	public ArrayList<BotonesEnfermedad> arr;
 	public int numColumns;

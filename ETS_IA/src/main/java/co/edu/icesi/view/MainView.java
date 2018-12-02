@@ -33,7 +33,7 @@ public class MainView extends JFrame implements ActionListener {
 		eView = new EtsView();
 		setLayout(new BorderLayout());
 		add(eView, BorderLayout.CENTER);
-		JLabel banner=new JLabel(new ImageIcon("./src/banner.png"));
+		JLabel banner=new JLabel(new ImageIcon("./src/main/resources/banner.png"));
 		banner.setSize(200, 300);
 	banner.setBackground(Color.white);
 	JPanel pAux2=new JPanel();
