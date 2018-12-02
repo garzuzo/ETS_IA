@@ -1,5 +1,6 @@
 package co.edu.icesi.view;
 
+import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.io.BufferedReader;
@@ -26,7 +27,7 @@ public class EtsView extends JPanel {
 	public EtsView() {
 
 		numColumns = 2;
-
+	setBackground(Color.WHITE);
 		arr = new ArrayList<BotonesEnfermedad>();
 		cargarDatos();
 		setLayout(new GridLayout(arr.size(), numColumns + 1));
@@ -40,7 +41,7 @@ public class EtsView extends JPanel {
 
 				// ButtonGroup bgAct=beAct.bg;
 				JRadioButton rbAct = beAct.arrRD.get(j);
-
+rbAct.setBackground(Color.WHITE);
 				add(rbAct);
 
 			}
