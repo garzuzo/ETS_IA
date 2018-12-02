@@ -1,8 +1,8 @@
 package co.edu.icesi.drools;
 
+import java.io.IOException;
 import java.util.Collection;
 
-//import org.drools.RuleBase;
 import org.drools.KnowledgeBase;
 import org.drools.KnowledgeBaseFactory;
 import org.drools.builder.KnowledgeBuilder;
@@ -11,7 +11,17 @@ import org.drools.builder.KnowledgeBuilderErrors;
 import org.drools.builder.KnowledgeBuilderFactory;
 import org.drools.builder.ResourceType;
 import org.drools.io.ResourceFactory;
+import org.drools.logger.KnowledgeRuntimeLogger;
+import org.drools.logger.KnowledgeRuntimeLoggerFactory;
 import org.drools.runtime.StatefulKnowledgeSession;
+import org.kie.api.KieServices;
+import org.kie.api.runtime.KieContainer;
+import org.kie.api.runtime.KieSession;
+
+
+
+//import org.drools.RuleBase;
+
 //import org.kie.api.KieServices;
 //import org.drools.RuleBaseFactory;
 //import org.drools.WorkingMemory;
@@ -20,24 +30,19 @@ import org.drools.runtime.StatefulKnowledgeSession;
 //import org.kie.api.runtime.KieContainer;
 //import org.kie.api.runtime.KieSession;
 
-//import org.kie.api.KieServices;
-//import org.kie.api.runtime.KieContainer;
-//import org.kie.api.runtime.KieSession;
 
 public class PruebaEnfermedad {
 
 	public static void main(String[] args) {
 
-//		KieServices ks = KieServices.Factory.get();
-//		KieContainer kContainer = ks.getKieClasspathContainer();
-//		KieSession kSession = kContainer.newKieSession("ksession-rules");
-
 		try {
+//			KieServices ks = KieServices.Factory.get();
+//			KieContainer kContainer = ks.getKieClasspathContainer();
+//			KieSession ksession = kContainer.newKieSession("ksession-rules");
 
-			// load up the knowledge base
 			KnowledgeBase kbase = readKnowledgeBase();
 			StatefulKnowledgeSession ksession = kbase.newStatefulKnowledgeSession();
-
+			KnowledgeRuntimeLogger logger = KnowledgeRuntimeLoggerFactory.newFileLogger(ksession, "test");
 			Persona p1 = new Persona();
 			p1.setNombrePersona("Persona1");
 			p1.setDolorOrinar("Si");
@@ -107,8 +112,8 @@ public class PruebaEnfermedad {
 			p5.setDolorSexo("No");
 
 			ksession.insert(p5);
-	
-			Persona p6= new Persona();
+
+			Persona p6 = new Persona();
 			p6.setNombrePersona("Persona6");
 			p6.setAftas("No");
 			p6.setDolorGarganta("Si");
@@ -129,20 +134,41 @@ public class PruebaEnfermedad {
 			p6.setUbicacionLlagas("boca");
 			p6.setSangrado("No");
 			p6.setFuerzaMuscular("debil");
-			
+
 			ksession.insert(p6);
 			ksession.fireAllRules();
 
-			System.out.println(p1.getNombrePersona() + "según tus síntomas, tu diagnóstico es:" + p1.getDiagnostico());
-			System.out.println(p2.getNombrePersona() + "según tus síntomas, tu diagnóstico es:" + p2.getDiagnostico());
-			System.out.println(p3.getNombrePersona() + "según tus síntomas, tu diagnóstico es:" + p3.getDiagnostico());
-			System.out.println(p4.getNombrePersona() + "según tus síntomas, tu diagnóstico es:" + p4.getDiagnostico());
-			System.out.println(p5.getNombrePersona() + "según tus síntomas, tu diagnóstico es:" + p5.getDiagnostico());
-			System.out.println(p6.getNombrePersona() + "según tus síntomas, tu diagnóstico es:" + p6.getDiagnostico());
+			System.out.println(p1.getNombrePersona() + "segun tus sintomas, tu diagnostico es:" + p1.getDiagnostico());
+			System.out.println(p2.getNombrePersona() + "segun tus sintomas, tu diagnostico es:" + p2.getDiagnostico());
+			System.out.println(p3.getNombrePersona() + "segun tus sintomas, tu diagnostico es:" + p3.getDiagnostico());
+			System.out.println(p4.getNombrePersona() + "segun tus sintomas, tu diagnostico es:" + p4.getDiagnostico());
+			System.out.println(p5.getNombrePersona() + "segun tus sintomas, tu diagnostico es:" + p5.getDiagnostico());
+			System.out.println(p6.getNombrePersona() + "segun tus sintomas, tu diagnostico es:" + p6.getDiagnostico());
+			logger.close();
 		} catch (Throwable t) {
+
 			t.printStackTrace();
 		}
+
+//		try {
+//
+//			// load up the knowledge base
+//			KnowledgeBase kbase = readKnowledgeBase();
+//			StatefulKnowledgeSession ksession = kbase.newStatefulKnowledgeSession();
+//
+//		} catch (Throwable t) {
+//			t.printStackTrace();
+//		}
 	}
+	
+//	public KieFileSystem kieFileSystem() throws IOException {
+//	    KieFileSystem kieFileSystem = getKieServices().newKieFileSystem();
+//	        for (Resource file : getRuleFiles()) {
+//	            kieFileSystem.write(
+//	              ResourceFactory.newClassPathResource(file.getFilename(), "UTF-8"));
+//	        }
+//	        return kieFileSystem;
+//	}
 
 	private static KnowledgeBase readKnowledgeBase() throws Exception {
 		KnowledgeBuilder kbuilder = KnowledgeBuilderFactory.newKnowledgeBuilder();

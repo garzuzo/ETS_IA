@@ -3,14 +3,34 @@
   <groupId>ETS_IA</groupId>
   <artifactId>ETS_IA</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  <properties>
+ <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+  </properties>
   
   <dependencies>
+   <dependency>
+        <groupId>org.slf4j</groupId>
+	    <artifactId>slf4j-api</artifactId>
+        <version>1.7.25</version>
+    </dependency>
+    
+    <dependency>
+    	<groupId>org.slf4j</groupId>
+    	<artifactId>slf4j-jdk14</artifactId>
+    	<version>1.7.25</version>
+	</dependency>
+	
   <dependency>
     <groupId>org.kie</groupId>
     <artifactId>kie-ci</artifactId>
     <version>7.1.0.Beta1</version>
 </dependency>
-
+<dependency>
+    <groupId>org.drools</groupId>
+    <artifactId>drools-decisiontables</artifactId>
+    <version>7.1.0.Beta1</version>
+</dependency>
 <!-- https://mvnrepository.com/artifact/org.drools/drools-core -->
 <dependency>
     <groupId>org.drools</groupId>
