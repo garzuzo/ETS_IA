@@ -24,6 +24,7 @@ public class Enfermedad {
 		dolorOrinar=p.get("dolorOrinar");
 		SecrecionPene=p.get("SecrecionPene");
 		dolorSexo=p.get("dolorSexo");
+		
 		System.out.println(dolorOrinar);
 	}
 	public HashMap<String, String> getP() {
