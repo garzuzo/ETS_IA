@@ -7,7 +7,7 @@ rule "Gonorrea fuerte"
 		persona: Persona(dolorOrinar=="Si", ardorOrinar=="Si", flujoVaginal=="anormal", colorFlujo=="amarillento", sangrado=="Si", 
 		lugarSangrado=="vagina", picazon== "Si", lugarPicazon== "ano", secrecionAno=="Si", dolorDefecar=="Si")
 	then
-		persona.setDiagnostico("Gonorrea fuerte);
+		persona.setDiagnostico("Gonorrea fuerte");
 end
 
 rule "Gonorrea leve"
@@ -15,7 +15,7 @@ rule "Gonorrea leve"
 		persona: Persona(dolorOrinar=="Si", ardorOrinar=="Si", flujoVaginal=="anormal", colorFlujo=="amarillento", sangrado=="Si", 
 		lugarSangrado=="vagina", picazon== "No",secrecionAno=="No", dolorDefecar=="No")
 	then
-		persona.setDiagnostico("Gonorrea leve);
+		persona.setDiagnostico("Gonorrea leve");
 end
 
 rule "Descarta Gonorrea"
@@ -23,5 +23,5 @@ rule "Descarta Gonorrea"
 		persona: Persona(dolorOrinar=="No", ardorOrinar=="No", flujoVaginal=="normal", colorFlujo=="normal", sangrado=="No", 
 		picazon=="No", secrecionAno=="No", dolorDefecar=="No")
 	then
-		persona.setDiagnostico("Descarta Gonorrea);
+		persona.setDiagnostico("Descarta Gonorrea");
 end

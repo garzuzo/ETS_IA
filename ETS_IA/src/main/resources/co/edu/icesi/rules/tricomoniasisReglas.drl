@@ -24,5 +24,5 @@ rule "Descarta Tricomoniasis"
 		persona: Persona(flujoVaginal=="normal", colorFlujo=="normal", olorFlujo=="normal", 
 		sangrado=="No", picazon=="No", dolorSexo=="No")
 	then
-		persona.setDiagnostico("Descarta Tricomoniasis);
+		persona.setDiagnostico("Descarta Tricomoniasis");
 end

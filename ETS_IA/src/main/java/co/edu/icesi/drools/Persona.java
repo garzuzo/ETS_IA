@@ -1,6 +1,17 @@
 package co.edu.icesi.drools;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
 import java.util.HashMap;
+
+import org.drools.compiler.compiler.DroolsParserException;
+import org.drools.compiler.compiler.PackageBuilder;
+import org.drools.core.RuleBase;
+import org.drools.core.RuleBaseFactory;
+import org.drools.core.WorkingMemory;
+import org.drools.core.rule.Package;
 
 public class Persona {
 
@@ -62,12 +73,39 @@ public class Persona {
 
 	public Persona() {
 
-//		cargarDatosAnalisis();
+		cargarDatosAnalisis();
 
 	}
 
+	public String diagnosticarVIH() {
+
+		PackageBuilder packageBuilder = new PackageBuilder();
+
+		String ruleFile = "/co/edu/icesi/rules/hepatitisReglas.drl";
+		InputStream resourceAsStream = getClass().getResourceAsStream(ruleFile);
+
+		Reader reader = new InputStreamReader(resourceAsStream);
+		try {
+			packageBuilder.addPackageFromDrl(reader);
+		} catch (DroolsParserException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		Package rulesPackage = packageBuilder.getPackage();
+		RuleBase ruleBase = RuleBaseFactory.newRuleBase();
+		ruleBase.addPackage(rulesPackage);
+
+		WorkingMemory workingMemory = ruleBase.newStatefulSession();
+
+		workingMemory.insert(this);
+		workingMemory.fireAllRules();
+
+		String answ = "Análisis para VIH:" + diagnostico;
+		return answ;
+	}
+
 	public void cargarDatosAnalisis() {
-		diagnostico="Sano";
+		diagnostico = "Sano";
 		pusPene = p.get("pusPene");
 		dolorOrinar = p.get("dolorOrinar");
 		dolorSexo = p.get("dolorSexo");

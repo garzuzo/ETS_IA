@@ -137,7 +137,7 @@ public class PruebaEnfermedad {
 
 			workingMemory.insert(p6);
 			workingMemory.fireAllRules();
-			workingMemory.clearAgenda();
+			
 			System.out.println(p1.getNombrePersona() + "segun tus sintomas, tu diagnostico es:" + p1.getDiagnostico());
 			System.out.println(p2.getNombrePersona() + "segun tus sintomas, tu diagnostico es:" + p2.getDiagnostico());
 			System.out.println(p3.getNombrePersona() + "segun tus sintomas, tu diagnostico es:" + p3.getDiagnostico());
@@ -157,7 +157,7 @@ public class PruebaEnfermedad {
 
 			PackageBuilder packageBuilder = new PackageBuilder();
 
-			String ruleFile = "/co/edu/icesi/rules/clamidiaReglas.drl";
+			String ruleFile = "/co/edu/icesi/rules/hepatitisReglas.drl";
 			InputStream resourceAsStream = getClass().getResourceAsStream(ruleFile);
 
 			Reader reader = new InputStreamReader(resourceAsStream);
@@ -307,7 +307,7 @@ public class PruebaEnfermedad {
 
 			workingMemory.insert(p6);
 			workingMemory.fireAllRules();
-
+//workingMemory.dispose();
 			System.out.println(p1.getNombrePersona() + "segun tus sintomas, tu diagnostico es:" + p1.getDiagnostico());
 			System.out.println(p2.getNombrePersona() + "segun tus sintomas, tu diagnostico es:" + p2.getDiagnostico());
 			System.out.println(p3.getNombrePersona() + "segun tus sintomas, tu diagnostico es:" + p3.getDiagnostico());
@@ -325,7 +325,7 @@ public class PruebaEnfermedad {
 	public static void main(String[] args) {
 		PruebaEnfermedad pe = new PruebaEnfermedad();
 		pe.execute();
-		//pe.execute1();
+		pe.execute1();
 //		try {
 //
 //			// load up the knowledge base
