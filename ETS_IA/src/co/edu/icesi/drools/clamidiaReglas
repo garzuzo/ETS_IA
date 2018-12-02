@@ -5,53 +5,53 @@ import co.edu.icesi.drools.Persona;
 rule "Clamidia preocupante-mujer"
     when
     	persona: Persona(dolorOrinar== "Si", dolorSexo == "Si", flujoVaginal=="anormal",
-    		colorFlujo== "con sangre", dolorVientre== "Si", olorFlujo== "fuerte", sangrado= "Si", 
+    		colorFlujo== "con sangre", dolorVientre== "Si", olorFlujo== "fuerte", sangrado== "Si", 
     		(lugarSangrado== "vagina" || lugarSangrado== "ano"), dolorAno== "Si", secrecionAno=="Si")
      then
-        enfermedad.setDiagnostico("Clamidia preocupante (Mujer)");
+        persona.setDiagnostico("Clamidia preocupante (Mujer)");
 end
 
 rule "Clamidia preocupante-hombre"
     when
-        persona: Persona(dolorOrinar== "Si", dolorSexo == "Si", sangrado= "Si", 
-    		lugarSangrado== "ano", dolorAno== "Si", secrecionAno=="Si", pusPene= "Si",
-    		secrecionPene=="lechosa", sensibilidadTesticulos="Si", inflamacionTesticulos=="Si")
+        persona: Persona(dolorOrinar== "Si", dolorSexo == "Si", sangrado== "Si", 
+    		lugarSangrado== "ano", dolorAno== "Si", secrecionAno=="Si", pusPene== "Si",
+    		secrecionPene=="lechosa", sensibilidadTesticulos=="Si", inflamacionTesticulos=="Si")
      then
-        enfermedad.setDiagnostico("Clamidia preocupante (Hombre)");
+        persona.setDiagnostico("Clamidia preocupante (Hombre)");
 end
 
 rule "Clamidia leve-mujer"
     when
     	persona: Persona(dolorOrinar== "Si", dolorSexo == "Si", flujoVaginal=="anormal",
-    		colorFlujo== "amarillento", dolorVientre== "Si", olorFlujo== "fuerte", sangrado= "No", 
-    		dolorAno== "Si", secrecionAno=="Si")
+    		colorFlujo== "amarillento", dolorVientre== "Si", olorFlujo== "fuerte", sangrado== "No", 
+    		dolorAno== "Si", secrecionAno=="No")
      then
-        enfermedad.setDiagnostico("Clamidia leve (Mujer)");
+        persona.setDiagnostico("Clamidia leve (Mujer)");
 end
 
 rule "Clamidia leve-hombre"
     when
     	persona: Persona(dolorOrinar== "Si", dolorSexo == "Si", sangrado== "No", 
-    		dolorAno== "Si", secrecionAno=="Si", pusPene= "Si",
-    		secrecionPene=="acuosa", sensibilidadTesticulos="Si", inflamacionTesticulos=="Si")
+    		dolorAno== "Si", secrecionAno=="Si", pusPene== "Si",
+    		secrecionPene=="acuosa", sensibilidadTesticulos=="Si", inflamacionTesticulos=="Si")
      then
-        enfermedad.setDiagnostico("Clamidia leve (Hombre)");
+        persona.setDiagnostico("Clamidia leve (Hombre)");
 end
 
 rule "Descarta clamidia-mujer"
     when
     	persona: Persona(dolorOrinar== "No", dolorSexo == "No", flujoVaginal=="normal",
-    		colorFlujo== "normal", dolorVientre== "No", olorFlujo== "normal", sangrado= "No", 
+    		colorFlujo== "normal", dolorVientre== "No", olorFlujo== "normal", sangrado== "No", 
     		dolorAno== "No", secrecionAno=="No")
      then
-        enfermedad.setDiagnostico("Descarta Clamidia (Mujer)");
+        persona.setDiagnostico("Descarta Clamidia (Mujer)");
 end
 
 rule "Descarta clamidia-hombre"
     when
     	persona: Persona(dolorOrinar== "No", dolorSexo == "No", sangrado== "No", 
-    		dolorAno== "No", secrecionAno=="No", pusPene= "No",
-    		sensibilidadTesticulos="No", inflamacionTesticulos=="No")
+    		dolorAno== "No", secrecionAno=="No", pusPene== "No",
+    		sensibilidadTesticulos=="No", inflamacionTesticulos=="No")
      then
-        enfermedad.setDiagnostico("Descarta Clamidia(Hombre)");
+        persona.setDiagnostico("Descarta Clamidia(Hombre)");
 end

@@ -4,24 +4,24 @@ import co.edu.icesi.drools.Persona;
 
 rule "Gonorrea fuerte"
 	when
-		enfermedad: Enfermedad(dolorOrinar=="Si", ardorOrinar=="Si", flujoVaginal=="anormal", colorFlujo="amarillento", sangrado="Si", 
-		lugarSangrado="vagina", picazon= "Si", lugarPicazon= "ano", secrecionAno="Si", dolorDefecar="Si")
+		persona: Persona(dolorOrinar=="Si", ardorOrinar=="Si", flujoVaginal=="anormal", colorFlujo=="amarillo", sangrado=="Si", 
+		lugarSangrado=="vagina", picazon== "Si", lugarPicazon== "ano", secrecionAno=="Si", dolorDefecar=="Si")
 	then
-		enfermedad.setDiagnostico("Gonorrea fuerte);
+		persona.setDiagnostico("Gonorrea fuerte);
 end
 
 rule "Gonorrea leve"
 	when
-		enfermedad: Enfermedad(dolorOrinar=="Si", ardorOrinar=="Si", flujoVaginal=="anormal", colorFlujo="amarillento", sangrado="Si", 
-		lugarSangrado="vagina", picazon= "No",secrecionAno="No", dolorDefecar="No")
+		persona: Persona(dolorOrinar=="Si", ardorOrinar=="Si", flujoVaginal=="anormal", colorFlujo=="amarillo", sangrado="Si", 
+		lugarSangrado=="vagina", picazon== "No",secrecionAno=="No", dolorDefecar=="No")
 	then
-		enfermedad.setDiagnostico("Gonorrea leve);
+		persona.setDiagnostico("Gonorrea leve);
 end
 
 rule "Descarta Gonorrea"
 	when
-		enfermedad: Enfermedad(dolorOrinar=="No", ardorOrinar=="No", flujoVaginal=="normal", colorFlujo="normal", sangrado="No", 
-		picazon= "No", secrecionAno="No", dolorDefecar"No")
+		persona: Persona(dolorOrinar=="No", ardorOrinar=="No", flujoVaginal=="normal", colorFlujo=="normal", sangrado=="No", 
+		picazon=="No", secrecionAno=="No", dolorDefecar=="No")
 	then
-		enfermedad.setDiagnostico("Descarta Gonorrea);
+		persona.setDiagnostico("Descarta Gonorrea);
 end

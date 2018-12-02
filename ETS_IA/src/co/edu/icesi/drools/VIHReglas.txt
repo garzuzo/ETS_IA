@@ -4,7 +4,7 @@ import co.edu.icesi.drools.Persona;
 
 rule "VIH fuerte"
 	when 
-		enfermedad: Enfermedad (aftas=="Si", dolorGarganta=="Si", infeccionesHongos=="Si", enfermedadPelvica=="crónica", infecciones=="recurrentes", 
+		persona: Persona (aftas=="Si", dolorGarganta=="Si", infeccionesHongos=="Si", enfermedadPelvica=="crónica", infecciones=="recurrentes", 
 		cansancio=="Si", mareos=="Si", dolorCabeza=="Si", perdidaPeso=="Si", formacionHematomas=="frecuente", diarrea=="Si", fiebre=="Si", sudores=="Si", 
 		inflamacionGlandulasPelvis=="Si", inflamacionGlandulasGarganta=="Si", inflamacionGlandulasAxilas=="Si", tos=="seca", respiracion=="falta de aire", 
 		llagas=="Si", ubicacionLlagas=="piel" || ubicacionLlagas=="boca", sangrado=="Si", lugarSangrado=="boca"|| lugarSangrado=="ano" || lugarSangrado=="vagina",
