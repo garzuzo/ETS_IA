@@ -24,7 +24,7 @@ rule "Descarta hepatitis"
 	when
 		persona: Persona(cansancio=="No", dolorVientre=="No", apetito=="normal", nauseas=="No",
 		vomitos=="No", dolorArticulaciones=="No", dolorCabeza=="No", fiebre=="No", urticaria=="No", colorOrina=="normal",
-		colorHeces=="normal", ictericia=="No")
+		colorHeces=="normal", ictericia==s"No")
 	then
 		persona.setDiagnostico("Descarta Hepatitis");
 end
