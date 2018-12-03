@@ -11,6 +11,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import co.edu.icesi.drools.Persona;
@@ -24,12 +25,12 @@ public class MainView extends JFrame implements ActionListener {
 	private EtsView eView;
 	private JButton button;
 
-	private Persona enfermedad;
+	private Persona persona;
 
 	public MainView() {
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setBackground(Color.white);
-		enfermedad=new Persona();
+	
 		eView = new EtsView();
 		setLayout(new BorderLayout());
 		add(eView, BorderLayout.CENTER);
@@ -68,13 +69,19 @@ public class MainView extends JFrame implements ActionListener {
 
 		if (evento.equals("aceptar")) {
 			HashMap<String, String> hm = eView.obtenerDatos();
-			System.out.println("RESULTADOS:");
-			for (String act : hm.keySet()) {
-
-				System.out.println(act + " " + hm.get(act));
-			}
-			enfermedad.setP(hm);
-			enfermedad.cargarDatosAnalisis();
+		
+			persona=new Persona();
+			
+			persona.setP(hm);
+			persona.cargarDatosAnalisis();
+			String analisis=persona.diagnosticarClamidia()+"\n";
+			analisis+=persona.diagnosticarGonorrea()+"\n";
+			analisis+=persona.diagnosticarHepatitis()+"\n";
+			analisis+=persona.diagnosticarHerpes()+"\n";
+			analisis+=persona.diagnosticarTricomoniasis()+"\n";
+			analisis+=persona.diagnosticarVIH();
+			System.out.println(analisis);
+			JOptionPane.showMessageDialog(null, analisis, "Resultados del análisis",JOptionPane.WARNING_MESSAGE);
 		}
 
 	}

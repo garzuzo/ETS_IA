@@ -73,11 +73,99 @@ public class Persona {
 
 	public Persona() {
 
-		cargarDatosAnalisis();
+		//cargarDatosAnalisis();
 
+	}
+	public static void main(String args[]) {
+		
 	}
 
 	public String diagnosticarVIH() {
+
+		PackageBuilder packageBuilder = new PackageBuilder();
+
+		String ruleFile = "/co/edu/icesi/rules/VIHReglas.drl";
+		InputStream resourceAsStream = getClass().getResourceAsStream(ruleFile);
+
+		Reader reader = new InputStreamReader(resourceAsStream);
+		try {
+			packageBuilder.addPackageFromDrl(reader);
+		} catch (DroolsParserException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		Package rulesPackage = packageBuilder.getPackage();
+		RuleBase ruleBase = RuleBaseFactory.newRuleBase();
+		ruleBase.addPackage(rulesPackage);
+
+		WorkingMemory workingMemory = ruleBase.newStatefulSession();
+
+		workingMemory.insert(this);
+		workingMemory.fireAllRules();
+workingMemory.dispose();
+		String answ = "Análisis para VIH:" + diagnostico;
+		diagnostico="Sano";
+		return answ;
+	}
+
+	public String diagnosticarTricomoniasis() {
+		
+		
+		PackageBuilder packageBuilder = new PackageBuilder();
+
+		String ruleFile = "/co/edu/icesi/rules/tricomoniasisReglas.drl";
+		InputStream resourceAsStream = getClass().getResourceAsStream(ruleFile);
+
+		Reader reader = new InputStreamReader(resourceAsStream);
+		try {
+			packageBuilder.addPackageFromDrl(reader);
+		} catch (DroolsParserException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		Package rulesPackage = packageBuilder.getPackage();
+		RuleBase ruleBase = RuleBaseFactory.newRuleBase();
+		ruleBase.addPackage(rulesPackage);
+
+		WorkingMemory workingMemory = ruleBase.newStatefulSession();
+
+		workingMemory.insert(this);
+		workingMemory.fireAllRules();
+		workingMemory.dispose();
+		String answ = "Análisis para Tricomoniasis:" + diagnostico;
+		diagnostico="Sano";
+		return answ;
+	}
+	
+	
+	public String diagnosticarHerpes() {
+
+		PackageBuilder packageBuilder = new PackageBuilder();
+
+		String ruleFile = "/co/edu/icesi/rules/herpesReglas.drl";
+		InputStream resourceAsStream = getClass().getResourceAsStream(ruleFile);
+
+		Reader reader = new InputStreamReader(resourceAsStream);
+		try {
+			packageBuilder.addPackageFromDrl(reader);
+		} catch (DroolsParserException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		Package rulesPackage = packageBuilder.getPackage();
+		RuleBase ruleBase = RuleBaseFactory.newRuleBase();
+		ruleBase.addPackage(rulesPackage);
+
+		WorkingMemory workingMemory = ruleBase.newStatefulSession();
+
+		workingMemory.insert(this);
+		workingMemory.fireAllRules();
+		workingMemory.dispose();
+		String answ = "Análisis para Herpes:" + diagnostico;
+		diagnostico="Sano";
+		return answ;
+	}
+	public String diagnosticarHepatitis() {
 
 		PackageBuilder packageBuilder = new PackageBuilder();
 
@@ -99,11 +187,69 @@ public class Persona {
 
 		workingMemory.insert(this);
 		workingMemory.fireAllRules();
-
-		String answ = "Análisis para VIH:" + diagnostico;
+		workingMemory.dispose();
+		String answ = "Análisis para Hepatitis-B:" + diagnostico;
+		diagnostico="Sano";
 		return answ;
 	}
+	
+	public String diagnosticarClamidia() {
 
+		PackageBuilder packageBuilder = new PackageBuilder();
+
+		String ruleFile = "/co/edu/icesi/rules/clamidiaReglas.drl";
+		InputStream resourceAsStream = getClass().getResourceAsStream(ruleFile);
+
+		Reader reader = new InputStreamReader(resourceAsStream);
+		try {
+			packageBuilder.addPackageFromDrl(reader);
+		} catch (DroolsParserException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		Package rulesPackage = packageBuilder.getPackage();
+		RuleBase ruleBase = RuleBaseFactory.newRuleBase();
+		ruleBase.addPackage(rulesPackage);
+
+		WorkingMemory workingMemory = ruleBase.newStatefulSession();
+
+		workingMemory.insert(this);
+		workingMemory.fireAllRules();
+		workingMemory.dispose();
+		String answ = "Análisis para Clamidia:" + diagnostico;
+		diagnostico="Sano";
+		return answ;
+	}
+	
+	public String diagnosticarGonorrea() {
+
+		PackageBuilder packageBuilder = new PackageBuilder();
+
+		String ruleFile = "/co/edu/icesi/rules/gonorreaReglas.drl";
+		InputStream resourceAsStream = getClass().getResourceAsStream(ruleFile);
+
+		Reader reader = new InputStreamReader(resourceAsStream);
+		try {
+			packageBuilder.addPackageFromDrl(reader);
+		} catch (DroolsParserException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		Package rulesPackage = packageBuilder.getPackage();
+		RuleBase ruleBase = RuleBaseFactory.newRuleBase();
+		ruleBase.addPackage(rulesPackage);
+
+		WorkingMemory workingMemory = ruleBase.newStatefulSession();
+
+		workingMemory.insert(this);
+		workingMemory.fireAllRules();
+		workingMemory.dispose();
+		String answ = "Análisis para Gonorrea:" + diagnostico;
+		diagnostico="Sano";
+		return answ;
+	}
+	
+	
 	public void cargarDatosAnalisis() {
 		diagnostico = "Sano";
 		pusPene = p.get("pusPene");

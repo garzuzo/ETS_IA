@@ -20,7 +20,7 @@ end
 
 rule "Descarta Gonorrea"
 	when
-		persona: Persona(dolorOrinar=="No", ardorOrinar=="No", flujoVaginal=="normal", colorFlujo=="normal", sangrado=="No", 
+		persona: Persona(dolorOrinar=="No", ardorOrinar=="No", (flujoVaginal=="normal"||flujoVaginal=="No aplica"), (colorFlujo=="normal"||colorFlujo=="No aplica"), sangrado=="No", 
 		picazon=="No", secrecionAno=="No", dolorDefecar=="No")
 	then
 		persona.setDiagnostico("Descarta Gonorrea");
