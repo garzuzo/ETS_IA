@@ -4,25 +4,41 @@ import co.edu.icesi.drools.Persona;
 
 rule "Tricomoniasis fuerte-mujer"
 	when
-		persona: Persona(flujoVaginal=="anormal", (colorFlujo=="verde"|| colorFlujo=="amarillento" || colorFlujo=="gris"), olorFlujo=="fetido", 
+		persona: Persona(sexo=="F",flujoVaginal=="anormal", (colorFlujo=="verde"|| colorFlujo=="amarillento" || colorFlujo=="gris"), olorFlujo=="fetido", 
 		sangrado=="Si", lugarSangrado=="vagina", picazon=="Si", lugarPicazon=="vagina", dolorSexo=="Si")
 	then
-		persona.setDiagnostico("Tricomoniasis fuerte");
+		persona.setDiagnostico("Tricomoniasis fuerte(mujer)");
 end
 
 rule "Tricomoniasis leve- mujer"
 	when
-		persona: Persona(flujoVaginal== "anormal",(colorFlujo=="verde"|| colorFlujo=="amarillento" || colorFlujo=="gris"), olorFlujo=="fuerte", 
+		persona: Persona(sexo=="F",flujoVaginal== "anormal",(colorFlujo=="verde"|| colorFlujo=="amarillento" || colorFlujo=="gris"), olorFlujo=="fuerte", 
 		sangrado=="No", picazon=="Si", lugarPicazon=="vagina", dolorSexo=="No")
 	then
-		persona.setDiagnostico("Tricomoniasis leve");
+		persona.setDiagnostico("Tricomoniasis leve(mujer)");
 end
 
 
-rule "Descarta Tricomoniasis"
+rule "Descarta Tricomoniasis-mujer"
 	when
-		persona: Persona((flujoVaginal=="normal"||flujoVaginal=="No aplica"), (colorFlujo=="normal"||colorFlujo=="No aplica"), (olorFlujo=="normal"|| olorFlujo=="No aplica"), 
+		persona: Persona(sexo=="F",(flujoVaginal=="normal"||flujoVaginal=="No aplica"), (colorFlujo=="normal"||colorFlujo=="No aplica"), (olorFlujo=="normal"|| olorFlujo=="No aplica"), 
 		sangrado=="No", picazon=="No", dolorSexo=="No")
 	then
-		persona.setDiagnostico("Descarta Tricomoniasis");
+		persona.setDiagnostico("Descarta Tricomoniasis(mujer)");
+end
+
+rule "Tricomoniasis fuerte- hombre"
+	when
+		persona: Persona(sexo=="M",dolorSexo=="Si", dolorOrinar=="Si", ardorOrinar=="Si", secrecionPene=="lechosa",
+		inflamacionTesticulos=="Si")
+	then
+		persona.setDiagnostico("Tricomoniasis fuerte (hombre)");
+end
+
+rule "Descarta Tricomoniasis-hombre"
+	when
+		persona: Persona(sexo=="M",dolorSexo=="Si", dolorOrinar=="Si", ardorOrinar=="Si", secrecionPene=="lechosa",
+		inflamacionTesticulos=="Si")
+	then
+		persona.setDiagnostico("Descarta Tricomoniasis (hombre)");
 end

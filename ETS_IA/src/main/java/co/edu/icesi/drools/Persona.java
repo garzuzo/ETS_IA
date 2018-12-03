@@ -70,7 +70,8 @@ public class Persona {
 	private String lugarSangrado; // boca, nariz,ano, vagina
 	private String fuerzaMuscular;
 	private String pusPene;
-
+	private String sexo;
+	
 	public Persona() {
 
 		//cargarDatosAnalisis();
@@ -303,7 +304,9 @@ workingMemory.dispose();
 		respiracion = p.get("respiracion");
 		lugarSangrado = p.get("lugarSangrado");
 		fuerzaMuscular = p.get("fuerzaMuscular");
+		sexo= p.get("sexo");
 		System.out.println(dolorOrinar);
+		System.out.println(sexo);
 	}
 
 	public HashMap<String, String> getP() {
@@ -739,5 +742,12 @@ workingMemory.dispose();
 
 	public void setFuerzaMuscular(String fuerzaMuscular) {
 		this.fuerzaMuscular = fuerzaMuscular;
+	}
+	
+	public String getSexo() {
+		return sexo;
+	}
+	public void setSexo(String sexo) {
+		this.sexo = sexo;
 	}
 }

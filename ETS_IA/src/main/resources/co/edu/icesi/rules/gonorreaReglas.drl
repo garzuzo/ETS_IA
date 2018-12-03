@@ -2,26 +2,50 @@ package co.edu.icesi.rules;
 
 import co.edu.icesi.drools.Persona;
 
-rule "Gonorrea fuerte"
+rule "Gonorrea fuerte- mujer"
 	when
-		persona: Persona(dolorOrinar=="Si", ardorOrinar=="Si", flujoVaginal=="anormal", colorFlujo=="amarillento", sangrado=="Si", 
+		persona: Persona(sexo=="F",dolorOrinar=="Si", ardorOrinar=="Si", flujoVaginal=="anormal", colorFlujo=="amarillento", sangrado=="Si", 
 		lugarSangrado=="vagina", picazon== "Si", lugarPicazon== "ano", secrecionAno=="Si", dolorDefecar=="Si")
 	then
-		persona.setDiagnostico("Gonorrea fuerte");
+		persona.setDiagnostico("Gonorrea fuerte (mujer)");
 end
 
-rule "Gonorrea leve"
+rule "Gonorrea leve- mujer"
 	when
-		persona: Persona(dolorOrinar=="Si", ardorOrinar=="Si", flujoVaginal=="anormal", colorFlujo=="amarillento", sangrado=="Si", 
+		persona: Persona(sexo=="F",dolorOrinar=="Si", ardorOrinar=="Si", flujoVaginal=="anormal", colorFlujo=="amarillento", sangrado=="Si", 
 		lugarSangrado=="vagina", picazon== "No",secrecionAno=="No", dolorDefecar=="No")
 	then
-		persona.setDiagnostico("Gonorrea leve");
+		persona.setDiagnostico("Gonorrea leve (mujer)");
 end
 
-rule "Descarta Gonorrea"
+
+rule "Descarta Gonorrea-mujer"
 	when
-		persona: Persona(dolorOrinar=="No", ardorOrinar=="No", (flujoVaginal=="normal"||flujoVaginal=="No aplica"), (colorFlujo=="normal"||colorFlujo=="No aplica"), sangrado=="No", 
+		persona: Persona(sexo=="F",dolorOrinar=="No", ardorOrinar=="No", (flujoVaginal=="normal"||flujoVaginal=="No aplica"), (colorFlujo=="normal"||colorFlujo=="No aplica"), sangrado=="No", 
 		picazon=="No", secrecionAno=="No", dolorDefecar=="No")
 	then
-		persona.setDiagnostico("Descarta Gonorrea");
+		persona.setDiagnostico("Descarta Gonorrea(Mujer)");
+end
+
+rule "Gonorrea fuerte- hombre"
+	when
+		persona: Persona(sexo=="M",dolorOrinar=="Si", ardorOrinar=="Si", secrecionPene=="lechosa",
+		pusPene== "Si",sensibilidadTesticulos=="Si", inflamacionTesticulos=="Si",  inflamacionGlandulaGarganta=="Si")
+	then
+		persona.setDiagnostico("Gonorrea fuerte (hombre)");
+end
+
+rule "Gonorrea leve- hombre"
+	when
+		persona: Persona(sexo=="M",dolorOrinar=="Si", ardorOrinar=="Si", secrecionPene=="lechosa",
+		pusPene== "No",sensibilidadTesticulos=="No", inflamacionTesticulos=="No",  inflamacionGlandulaGarganta=="Si")
+	then
+		persona.setDiagnostico("Gonorrea leve (hombre)");
+end
+
+rule "Descarta Gonorrea- hombre"
+	when
+		persona: Persona(sexo=="M",dolorOrinar=="No", ardorOrinar=="No", pusPene== "No",sensibilidadTesticulos=="No", inflamacionTesticulos=="No",  inflamacionGlandulaGarganta=="No")
+	then
+		persona.setDiagnostico("Descarta Gonorrea (hombre)");
 end
