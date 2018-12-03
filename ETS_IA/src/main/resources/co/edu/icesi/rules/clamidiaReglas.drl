@@ -33,7 +33,7 @@ rule "Clamidia leve-hombre"
     when
     	persona: Persona(sexo=="M",dolorOrinar== "Si", dolorSexo == "Si", sangrado== "No", 
     		dolorAno== "Si", secrecionAno=="Si", pusPene== "Si",
-    		secrecionPene=="acuosa", sensibilidadTesticulos=="Si", inflamacionTesticulos=="Si")
+    		secrecionPene=="lechosa", sensibilidadTesticulos=="Si", inflamacionTesticulos=="Si")
      then
         persona.setDiagnostico("Clamidia leve (Hombre)");
 end

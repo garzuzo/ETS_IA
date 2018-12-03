@@ -30,22 +30,22 @@ public class MainView extends JFrame implements ActionListener {
 	public MainView() {
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setBackground(Color.white);
-	
+
 		eView = new EtsView();
 		setLayout(new BorderLayout());
 		add(eView, BorderLayout.CENTER);
-		JLabel banner=new JLabel(new ImageIcon("./src/main/resources/banner.png"));
-		banner.setSize(200, 300);
-	banner.setBackground(Color.white);
-	JPanel pAux2=new JPanel();
-	pAux2.setBackground(Color.WHITE);
-	pAux2.add(banner);
-		add(pAux2,BorderLayout.NORTH);
+		JLabel banner = new JLabel(new ImageIcon("./src/main/resources/banner.png"));
+		banner.setSize(300, 250);
+		banner.setBackground(Color.white);
+		JPanel pAux2 = new JPanel();
+		pAux2.setBackground(Color.WHITE);
+		pAux2.add(banner);
+		add(pAux2, BorderLayout.NORTH);
 		button = new JButton();
 		button.setText("Aceptar");
 		button.addActionListener(this);
 		button.setActionCommand("aceptar");
-		JPanel pAux=new JPanel();
+		JPanel pAux = new JPanel();
 		pAux.setLayout(new FlowLayout());
 		pAux.add(button);
 		pAux.setBackground(Color.white);
@@ -56,9 +56,10 @@ public class MainView extends JFrame implements ActionListener {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		MainView mv = new MainView();
-		
+		JOptionPane.showMessageDialog(null,
+				"Por favor marque los sintomas que ha presentado\npara evaluar las posiblidades de tener las\n siguientes enfermedades:\n-Clamidia\n-Gonorrea\n-Hepatitis-B\n-Herpes\n-Tricomoniasis\n-VIH");
 		mv.setVisible(true);
-		mv.setSize(1300, 950);
+		mv.setSize(1340, 950);
 
 	}
 
@@ -69,19 +70,19 @@ public class MainView extends JFrame implements ActionListener {
 
 		if (evento.equals("aceptar")) {
 			HashMap<String, String> hm = eView.obtenerDatos();
-		
-			persona=new Persona();
-			
+
+			persona = new Persona();
+
 			persona.setP(hm);
 			persona.cargarDatosAnalisis();
-			String analisis=persona.diagnosticarClamidia()+"\n";
-			analisis+=persona.diagnosticarGonorrea()+"\n";
-			analisis+=persona.diagnosticarHepatitis()+"\n";
-			analisis+=persona.diagnosticarHerpes()+"\n";
-			analisis+=persona.diagnosticarTricomoniasis()+"\n";
-			analisis+=persona.diagnosticarVIH();
+			String analisis = persona.diagnosticarClamidia() + "\n";
+			analisis += persona.diagnosticarGonorrea() + "\n";
+			analisis += persona.diagnosticarHepatitis() + "\n";
+			analisis += persona.diagnosticarHerpes() + "\n";
+			analisis += persona.diagnosticarTricomoniasis() + "\n";
+			analisis += persona.diagnosticarVIH();
 			System.out.println(analisis);
-			JOptionPane.showMessageDialog(null, analisis, "Resultados del análisis",JOptionPane.WARNING_MESSAGE);
+			JOptionPane.showMessageDialog(null, analisis, "Resultados del análisis", JOptionPane.WARNING_MESSAGE);
 		}
 
 	}

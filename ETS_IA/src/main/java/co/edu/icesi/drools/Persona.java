@@ -67,14 +67,14 @@ public class Persona {
 	private String sudores;
 	private String tos;
 	private String respiracion;
-	private String lugarSangrado; // boca, nariz,ano, vagina
+	private String lugarSangrado; 
 	private String fuerzaMuscular;
 	private String pusPene;
 	private String sexo;
 	
 	public Persona() {
 
-		//cargarDatosAnalisis();
+
 
 	}
 	public static void main(String args[]) {
@@ -105,7 +105,7 @@ public class Persona {
 		workingMemory.fireAllRules();
 workingMemory.dispose();
 		String answ = "Análisis para VIH:" + diagnostico;
-		diagnostico="Sano";
+		diagnostico="Poco probable";
 		return answ;
 	}
 
@@ -134,7 +134,7 @@ workingMemory.dispose();
 		workingMemory.fireAllRules();
 		workingMemory.dispose();
 		String answ = "Análisis para Tricomoniasis:" + diagnostico;
-		diagnostico="Sano";
+		diagnostico="Poco probable";
 		return answ;
 	}
 	
@@ -163,7 +163,7 @@ workingMemory.dispose();
 		workingMemory.fireAllRules();
 		workingMemory.dispose();
 		String answ = "Análisis para Herpes:" + diagnostico;
-		diagnostico="Sano";
+		diagnostico="Poco probable";
 		return answ;
 	}
 	public String diagnosticarHepatitis() {
@@ -190,7 +190,7 @@ workingMemory.dispose();
 		workingMemory.fireAllRules();
 		workingMemory.dispose();
 		String answ = "Análisis para Hepatitis-B:" + diagnostico;
-		diagnostico="Sano";
+		diagnostico="Poco probable";
 		return answ;
 	}
 	
@@ -218,7 +218,7 @@ workingMemory.dispose();
 		workingMemory.fireAllRules();
 		workingMemory.dispose();
 		String answ = "Análisis para Clamidia:" + diagnostico;
-		diagnostico="Sano";
+		diagnostico="Poco probable";
 		return answ;
 	}
 	
@@ -246,13 +246,13 @@ workingMemory.dispose();
 		workingMemory.fireAllRules();
 		workingMemory.dispose();
 		String answ = "Análisis para Gonorrea:" + diagnostico;
-		diagnostico="Sano";
+		diagnostico="Poco probable";
 		return answ;
 	}
 	
 	
 	public void cargarDatosAnalisis() {
-		diagnostico = "Sano";
+		diagnostico = "Poco probable";
 		pusPene = p.get("pusPene");
 		dolorOrinar = p.get("dolorOrinar");
 		dolorSexo = p.get("dolorSexo");
